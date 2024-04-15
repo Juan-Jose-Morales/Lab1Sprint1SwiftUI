@@ -52,8 +52,27 @@ struct HomeView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity)
                 .padding()
+            
+            Button("Cambiar Texto"){
+                self.changeText()
+            }
         }
+        
     }
+    func changeText(){
+        var newText = Int.random(in: 0..<texts.count)
+        
+        if newText == lastModifiedIndex{
+            newText = (newText + 1) % texts.count
+        }
+        if Bool.random() {
+            leftParagraph = newText
+        }else{
+            rightParagraph = newText
+        }
+        lastModifiedIndex = newText
+    }
+    
 }
 
 struct HomeView_Previews: PreviewProvider {
