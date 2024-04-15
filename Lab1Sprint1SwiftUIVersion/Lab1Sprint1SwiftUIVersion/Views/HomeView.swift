@@ -36,25 +36,33 @@ struct HomeView: View {
            """
        ]
     var body: some View {
-        
-        VStack{
-            HStack{
-                Text(texts[leftParagraph])
-                    .padding()
+        GeometryReader { geometry in
+            VStack{
+                HStack{
+                    Text(texts[leftParagraph])
+                        .padding()
+                        .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                        .frame(width: geometry.size.width / 2)
                     
-                Text(texts[rightParagraph])
-                    .padding()
-            }
-            .frame(maxWidth: .infinity)
-            
-            Image("AndroidVsApple")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+                    Text(texts[rightParagraph])
+                        .padding()
+                        .multilineTextAlignment(.center)
+                        .lineLimit(nil)
+                        .frame(width: geometry.size.width / 2)
+                }
+                
                 .frame(maxWidth: .infinity)
-                .padding()
-            
-            Button("Cambiar Texto"){
-                self.changeText()
+                
+                Image("AndroidVsApple")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                
+                Button("Cambiar Texto"){
+                    self.changeText()
+                }
             }
         }
         
