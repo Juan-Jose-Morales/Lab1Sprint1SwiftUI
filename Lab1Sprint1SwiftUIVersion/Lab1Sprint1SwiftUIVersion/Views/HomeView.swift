@@ -44,12 +44,14 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                         .frame(width: geometry.size.width / 2)
+                        
                     
                     Text(texts[rightParagraph])
                         .padding()
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                         .frame(width: geometry.size.width / 2)
+                        
                 }
                 
                 .frame(maxWidth: .infinity)
@@ -59,6 +61,8 @@ struct HomeView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity)
                     .padding()
+                
+                Spacer()
                 
                 Button("Cambiar Texto"){
                     self.changeText()
